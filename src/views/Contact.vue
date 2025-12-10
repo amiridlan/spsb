@@ -75,7 +75,6 @@
                       <a href="mailto:info@corpname.com" class="hover:text-secondary transition-colors">
                         info@corpname.com
                       </a>
-                      <div class="text-sm text-gray-500 mt-1">We'll respond within 24 hours</div>
                     </div>
                   </div>
                 </div>
@@ -95,11 +94,7 @@
                     <span class="font-semibold">9:00 AM - 6:00 PM</span>
                   </div>
                   <div class="flex justify-between">
-                    <span>Saturday</span>
-                    <span class="font-semibold">10:00 AM - 4:00 PM</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span>Sunday</span>
+                    <span>Saturday & Sunday</span>
                     <span class="font-semibold">Closed</span>
                   </div>
                 </div>
