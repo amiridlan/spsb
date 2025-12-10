@@ -1,6 +1,8 @@
 export interface NavItem {
   name: string
-  href: string
+  href?: string
+  to?: string
+  children?: NavItem[]
 }
 
 export interface Service {
@@ -8,6 +10,7 @@ export interface Service {
   description: string
   icon: () => any
   features: string[]
+  route: string
 }
 
 export interface KeyPoint {

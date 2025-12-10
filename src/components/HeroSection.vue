@@ -24,12 +24,12 @@
             Innovative solutions for event spaces, buildings, and comprehensive facility management services.
           </p>
           <div class="flex flex-wrap gap-4">
-            <a href="#services" @click.prevent="scrollToSection('#services')" class="btn-accent">
+            <a href="#services" @click.prevent="scrollToServices" class="btn-accent">
               Explore Services
             </a>
-            <a href="#contact" @click.prevent="scrollToSection('#contact')" class="btn-primary border-2 border-white bg-transparent hover:bg-white hover:text-primary">
+            <router-link to="/contact" class="btn-primary border-2 border-white bg-transparent hover:bg-white hover:text-primary">
               Get in Touch
-            </a>
+            </router-link>
           </div>
 
           <!-- Stats -->
@@ -78,8 +78,8 @@
 import { onMounted } from 'vue'
 import { gsap } from 'gsap'
 
-const scrollToSection = (href: string): void => {
-  const element = document.querySelector(href)
+const scrollToServices = (): void => {
+  const element = document.querySelector('#services')
   if (element) {
     const offset = 80
     const elementPosition = element.getBoundingClientRect().top

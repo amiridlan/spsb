@@ -14,10 +14,9 @@
         <div 
           v-for="(service, index) in services" 
           :key="index"
-          class="service-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer flex flex-col"
-          @click="toggleService(index)"
+          class="service-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col"
         >
-          <div class="p-8 flex-shrink-0">
+          <div class="p-8 flex-grow flex flex-col">
             <!-- Icon -->
             <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
               <component :is="service.icon" class="w-8 h-8 text-secondary group-hover:text-white transition-colors duration-300" />
@@ -29,46 +28,34 @@
             </h3>
 
             <!-- Short Description -->
-            <p class="text-gray-600 mb-4 leading-relaxed">
+            <p class="text-gray-600 mb-6 leading-relaxed flex-grow">
               {{ service.description }}
             </p>
 
-            <!-- Dropdown Toggle -->
-            <button 
-              class="flex items-center space-x-2 text-secondary font-semibold hover:text-primary transition-colors duration-300"
-              @click.stop="toggleService(index)"
-              type="button"
-            >
-              <span>{{ activeService === index ? 'Hide Details' : 'Learn More' }}</span>
-              <svg 
-                class="w-5 h-5 transition-transform duration-300"
-                :class="{ 'rotate-180': activeService === index }"
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            </button>
-          </div>
-
-          <!-- Expandable Details -->
-          <div 
-            v-if="activeService === index"
-            class="px-8 pb-8 border-t border-gray-100 pt-6 bg-gray-50 flex-shrink-0"
-          >
-            <ul class="space-y-3">
+            <!-- Features List -->
+            <ul class="space-y-2 mb-6">
               <li 
-                v-for="(feature, fIndex) in service.features" 
+                v-for="(feature, fIndex) in service.features.slice(0, 3)" 
                 :key="fIndex"
-                class="flex items-start space-x-3"
+                class="flex items-start space-x-2 text-sm text-gray-600"
               >
-                <svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
-                <span class="text-gray-700">{{ feature }}</span>
+                <span>{{ feature }}</span>
               </li>
             </ul>
+
+            <!-- Navigation Button -->
+            <router-link
+              :to="service.route"
+              class="btn-primary text-center inline-flex items-center justify-center space-x-2 group-hover:scale-105"
+            >
+              <span>Learn More</span>
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </router-link>
           </div>
         </div>
       </div>
@@ -82,9 +69,9 @@
             <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Let's discuss how our services can help your business thrive
             </p>
-            <a href="#contact" @click.prevent="scrollToSection('#contact')" class="btn-accent inline-block">
+            <router-link to="/contact" class="btn-accent inline-block">
               Contact Us Today
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
@@ -93,14 +80,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, h, onMounted, nextTick } from 'vue'
+import { h, onMounted, nextTick } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { Service } from '../types'
 
 gsap.registerPlugin(ScrollTrigger)
-
-const activeService = ref<number | null>(null)
 
 const services: Service[] = [
   {
@@ -115,7 +100,8 @@ const services: Service[] = [
       'Professional event coordination services',
       'Catering and hospitality management',
       'Parking and accessibility accommodations'
-    ]
+    ],
+    route: '/services/event-spaces'
   },
   {
     title: 'Buildings',
@@ -129,7 +115,8 @@ const services: Service[] = [
       'Building maintenance and repairs',
       'Energy efficiency optimization',
       'Compliance and safety inspections'
-    ]
+    ],
+    route: '/services/buildings'
   },
   {
     title: 'Facility Management',
@@ -143,27 +130,10 @@ const services: Service[] = [
       'Janitorial and cleaning services coordination',
       'Security and access control systems',
       '24/7 emergency response support'
-    ]
+    ],
+    route: '/services/facility-management'
   }
 ]
-
-const toggleService = (index: number): void => {
-  activeService.value = activeService.value === index ? null : index
-}
-
-const scrollToSection = (href: string): void => {
-  const element = document.querySelector(href)
-  if (element) {
-    const offset = 80
-    const elementPosition = element.getBoundingClientRect().top
-    const offsetPosition = elementPosition + window.pageYOffset - offset
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    })
-  }
-}
 
 onMounted(async () => {
   await nextTick()
@@ -189,14 +159,15 @@ onMounted(async () => {
 
   gsap.from('.service-card', {
     scrollTrigger: {
-      trigger: '#services',
+      trigger: '.services-grid',
       start: 'top 80%',
       toggleActions: 'play none none none',
       once: true
     },
-    y: 10,
+    y: 80,
     opacity: 0,
-    duration: 0.3,
+    duration: 0.8,
+    stagger: 0.2,
     ease: 'power3.out'
   })
 
@@ -209,7 +180,7 @@ onMounted(async () => {
     },
     y: 50,
     opacity: 0,
-    duration: 0.3,
+    duration: 0.8,
     ease: 'power3.out'
   })
 })

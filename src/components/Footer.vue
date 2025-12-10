@@ -38,14 +38,13 @@
           <h3 class="text-xl font-bold mb-4 text-accent">Quick Links</h3>
           <ul class="space-y-2">
             <li v-for="link in quickLinks" :key="link.name">
-              <a 
-                :href="link.href" 
+              <router-link 
+                :to="link.to!" 
                 class="text-gray-300 hover:text-accent transition-colors duration-300 flex items-center space-x-2"
-                @click.prevent="scrollToSection(link.href)"
               >
                 <span class="w-1 h-1 bg-secondary rounded-full"></span>
                 <span>{{ link.name }}</span>
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>
@@ -93,10 +92,9 @@ gsap.registerPlugin(ScrollTrigger)
 const currentYear: number = new Date().getFullYear()
 
 const quickLinks: NavItem[] = [
-  { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#services' },
-  { name: 'About Us', href: '#about' },
-  { name: 'Contact', href: '#contact' }
+  { name: 'Home', to: '/' },
+  { name: 'Company Profile', to: '/company-profile' },
+  { name: 'Contact', to: '/contact' }
 ]
 
 const socialLinks: SocialLink[] = [
@@ -122,20 +120,6 @@ const socialLinks: SocialLink[] = [
     ])
   }
 ]
-
-const scrollToSection = (href: string): void => {
-  const element = document.querySelector(href)
-  if (element) {
-    const offset = 80
-    const elementPosition = element.getBoundingClientRect().top
-    const offsetPosition = elementPosition + window.pageYOffset - offset
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    })
-  }
-}
 
 onMounted(() => {
   gsap.from('footer > div > div', {
