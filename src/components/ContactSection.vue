@@ -3,7 +3,7 @@
     <div class="container-custom">
       <div class="max-w-5xl mx-auto">
         <!-- Section Header -->
-        <div class="text-center mb-12 contact-header">
+        <div class="text-center mb-12 contact-header animate-fade-in-up">
           <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Get In Touch</h2>
           <p class="text-xl text-gray-300 max-w-2xl mx-auto">
             Ready to start your project? Contact us today and let's discuss how we can help.
@@ -12,7 +12,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <!-- Contact Info -->
-          <div class="lg:col-span-2 space-y-6 contact-info">
+          <div class="lg:col-span-2 space-y-6 contact-info animate-fade-in-left" style="animation-delay: 0.2s;">
             <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
               <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
               
@@ -71,7 +71,7 @@
           </div>
 
           <!-- Contact Form -->
-          <div class="lg:col-span-3 contact-form">
+          <div class="lg:col-span-3 contact-form animate-fade-in-right" style="animation-delay: 0.2s;">
             <div class="bg-white rounded-xl shadow-2xl p-8">
               <form @submit.prevent="handleSubmit" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

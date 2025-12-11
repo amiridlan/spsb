@@ -3,7 +3,7 @@
     <div class="container-custom">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <!-- Image Side -->
-        <div class="about-image relative">
+        <div class="about-image relative animate-fade-in-left">
           <div class="relative">
             <!-- Main Image Container -->
             <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
@@ -19,7 +19,7 @@
             <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
 
             <!-- Stats Card -->
-            <div class="absolute -bottom-8 -right-8 bg-white rounded-xl shadow-xl p-6 stats-card">
+            <div class="absolute -bottom-8 -right-8 bg-white rounded-xl shadow-xl p-6 stats-card animate-scale-in" style="animation-delay: 0.4s;">
               <div class="text-4xl font-bold text-secondary mb-2">15+</div>
               <div class="text-sm text-gray-600">Years of Excellence</div>
             </div>
@@ -27,7 +27,7 @@
         </div>
 
         <!-- Content Side -->
-        <div class="about-content">
+        <div class="about-content animate-fade-in-right" style="animation-delay: 0.2s;">
           <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">About Us</h2>
           <p class="text-xl text-gray-600 mb-6 leading-relaxed">
             We are a leading provider of comprehensive facility management and event space solutions, 
@@ -83,12 +83,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { KeyPoint } from '../types'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const keyPoints: KeyPoint[] = [
   {
@@ -127,40 +122,54 @@ const scrollToSection = (href: string): void => {
     })
   }
 }
-
-onMounted(() => {
-  gsap.from('.about-image', {
-    scrollTrigger: {
-      trigger: '#about',
-      start: 'top 70%',
-    },
-    x: -100,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.about-content > *', {
-    scrollTrigger: {
-      trigger: '#about',
-      start: 'top 70%',
-    },
-    x: 100,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.stats-card', {
-    scrollTrigger: {
-      trigger: '#about',
-      start: 'top 60%',
-    },
-    scale: 0,
-    opacity: 0,
-    duration: 0.6,
-    ease: 'back.out(1.7)'
-  })
-})
 </script>
+
+<style scoped>
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+</style>

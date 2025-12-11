@@ -2,7 +2,7 @@
   <section id="services" class="py-20 bg-gray-50 relative overflow-visible">
     <div class="container-custom overflow-visible">
       <!-- Section Header -->
-      <div class="text-center mb-16 section-header">
+      <div class="text-center mb-16 animate-on-scroll">
         <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Our Services</h2>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
           Comprehensive solutions tailored to meet your business needs
@@ -10,11 +10,12 @@
       </div>
 
       <!-- Services Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 services-grid overflow-visible">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-visible">
         <div 
           v-for="(service, index) in services" 
           :key="index"
-          class="service-card bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col"
+          class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col animate-on-scroll"
+          :class="`delay-${(index + 1) * 100}`"
         >
           <div class="p-8 flex-grow flex flex-col">
             <!-- Icon -->
@@ -61,7 +62,7 @@
       </div>
 
       <!-- CTA Section -->
-      <div class="mt-16 text-center cta-section">
+      <div class="mt-16 text-center animate-on-scroll">
         <div class="bg-primary rounded-2xl p-12 text-white relative overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-r from-secondary/20 to-transparent"></div>
           <div class="relative z-10">
@@ -80,12 +81,11 @@
 </template>
 
 <script setup lang="ts">
-import { h, onMounted, nextTick } from 'vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { h, onMounted } from 'vue'
+import { useScrollAnimation } from '../composables/useScrollAnimation'
 import type { Service } from '../types'
 
-gsap.registerPlugin(ScrollTrigger)
+useScrollAnimation()
 
 const services: Service[] = [
   {
@@ -97,9 +97,7 @@ const services: Service[] = [
     features: [
       'Flexible space configurations for any event size',
       'State-of-the-art audio-visual equipment',
-      'Professional event coordination services',
-      'Catering and hospitality management',
-      'Parking and accessibility accommodations'
+      'Professional event coordination services'
     ],
     route: '/services/event-spaces'
   },
@@ -112,9 +110,7 @@ const services: Service[] = [
     features: [
       'Property acquisition and development consulting',
       'Tenant relations and lease management',
-      'Building maintenance and repairs',
-      'Energy efficiency optimization',
-      'Compliance and safety inspections'
+      'Building maintenance and repairs'
     ],
     route: '/services/buildings'
   },
@@ -127,61 +123,9 @@ const services: Service[] = [
     features: [
       'Preventive and corrective maintenance programs',
       'HVAC, plumbing, and electrical systems management',
-      'Janitorial and cleaning services coordination',
-      'Security and access control systems',
-      '24/7 emergency response support'
+      'Janitorial and cleaning services coordination'
     ],
     route: '/services/facility-management'
   }
 ]
-
-onMounted(async () => {
-  await nextTick()
-
-  // Set initial state to visible to prevent GSAP hiding issues
-  gsap.set('.service-card', { opacity: 1, y: 0 })
-  gsap.set('.section-header', { opacity: 1, y: 0 })
-  gsap.set('.cta-section', { opacity: 1, y: 0 })
-
-  // Then animate from initial state
-  gsap.from('.section-header', {
-    scrollTrigger: {
-      trigger: '#services',
-      start: 'top 80%',
-      toggleActions: 'play none none none',
-      once: true
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.service-card', {
-    scrollTrigger: {
-      trigger: '.services-grid',
-      start: 'top 80%',
-      toggleActions: 'play none none none',
-      once: true
-    },
-    y: 80,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.cta-section', {
-    scrollTrigger: {
-      trigger: '.cta-section',
-      start: 'top 90%',
-      toggleActions: 'play none none none',
-      once: true
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power3.out'
-  })
-})
 </script>

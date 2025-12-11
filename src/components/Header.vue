@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed top-0 left-0 right-0 z-40 bg-white shadow-md transition-all duration-300" :class="{ 'bg-white/95 backdrop-blur-sm': scrolled }">
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white shadow-md transition-all duration-300 animate-slide-down" :class="{ 'bg-white/95 backdrop-blur-sm': scrolled }">
     <nav class="container-custom">
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
@@ -195,7 +195,6 @@
 <script setup lang="ts">
 import { ref, computed, h, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { gsap } from 'gsap'
 
 const route = useRoute()
 const scrolled = ref<boolean>(false)
@@ -247,16 +246,26 @@ const handleScroll = (): void => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  
-  gsap.from('header', {
-    y: -100,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power3.out'
-  })
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
+
+<style scoped>
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.8s ease-out;
+}
+</style>
