@@ -7,14 +7,14 @@
       </div>
 
       <div class="container-custom relative z-10">
-        <div class="max-w-4xl mx-auto text-center text-white page-hero">
-          <div class="w-20 h-20 bg-secondary/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <div class="w-20 h-20 bg-secondary/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 fade-in scale-in">
             <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
             </svg>
           </div>
-          <h1 class="text-5xl md:text-6xl font-bold mb-6">Event Spaces</h1>
-          <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in-up">Event Spaces</h1>
+          <p class="text-xl md:text-2xl text-gray-300 leading-relaxed fade-in-up delay-200">
             Premium venues designed for corporate events, conferences, and special occasions that leave lasting impressions.
           </p>
         </div>
@@ -25,7 +25,7 @@
     <section class="py-20 bg-white">
       <div class="container-custom">
         <div class="max-w-4xl mx-auto">
-          <div class="overview-content">
+          <div class="animate-on-scroll">
             <h2 class="text-4xl font-bold text-primary mb-6">World-Class Event Venues</h2>
             <p class="text-lg text-gray-600 mb-6 leading-relaxed">
               Our event spaces are meticulously designed to accommodate a wide range of events, from intimate board meetings 
@@ -44,7 +44,7 @@
     <!-- Features Grid -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
-        <div class="text-center mb-16 features-header">
+        <div class="text-center mb-16 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">What We Offer</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             Everything you need for a successful event
@@ -55,7 +55,8 @@
           <div 
             v-for="(feature, index) in features" 
             :key="index"
-            class="feature-card bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group"
+            class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group animate-on-scroll"
+            :class="`delay-${(index + 1) * 100}`"
           >
             <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
               <component :is="feature.icon" class="w-8 h-8 text-secondary group-hover:text-white transition-colors duration-300" />
@@ -70,7 +71,7 @@
     <!-- Space Options -->
     <section class="py-20 bg-white">
       <div class="container-custom">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Available Spaces</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             Choose the perfect venue for your event
@@ -81,7 +82,8 @@
           <div 
             v-for="(space, index) in spaces" 
             :key="index"
-            class="space-card bg-gray-50 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300"
+            class="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 animate-on-scroll"
+            :class="`delay-${(index + 1) * 200}`"
           >
             <div class="h-64 bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
               <svg class="w-32 h-32 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,7 +128,7 @@
     <!-- CTA Section -->
     <section class="py-20 bg-gradient-to-br from-primary to-primary/90">
       <div class="container-custom">
-        <div class="max-w-3xl mx-auto text-center text-white cta-section">
+        <div class="max-w-3xl mx-auto text-center text-white animate-on-scroll">
           <h2 class="text-4xl font-bold mb-6">Ready to Book Your Event Space?</h2>
           <p class="text-xl text-gray-300 mb-8">
             Contact us today to discuss your event requirements and schedule a venue tour
@@ -146,11 +148,10 @@
 </template>
 
 <script setup lang="ts">
-import { h, onMounted } from 'vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { h } from 'vue'
+import { useScrollAnimation } from '../../composables/useScrollAnimation'
 
-gsap.registerPlugin(ScrollTrigger)
+useScrollAnimation()
 
 interface Feature {
   title: string
@@ -266,62 +267,4 @@ const spaces: Space[] = [
     ]
   }
 ]
-
-onMounted(() => {
-  gsap.from('.page-hero > *', {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.overview-content > *', {
-    scrollTrigger: {
-      trigger: '.overview-content',
-      start: 'top 80%',
-    },
-    y: 30,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.feature-card', {
-    scrollTrigger: {
-      trigger: '.features-header',
-      start: 'top 70%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.space-card', {
-    scrollTrigger: {
-      trigger: '.space-card',
-      start: 'top 80%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.cta-section > *', {
-    scrollTrigger: {
-      trigger: '.cta-section',
-      start: 'top 80%',
-    },
-    y: 30,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: 'power3.out'
-  })
-})
 </script>

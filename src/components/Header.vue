@@ -1,10 +1,10 @@
 <template>
-  <header class="fixed top-0 left-0 right-0 z-40 bg-white shadow-md transition-all duration-300 animate-slide-down" :class="{ 'bg-white/95 backdrop-blur-sm': scrolled }">
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white shadow-md transition-all duration-300 fade-in-down" :class="{ 'bg-white/95 backdrop-blur-sm': scrolled }">
     <nav class="container-custom">
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
         <div class="flex-shrink-0">
-          <router-link to="/" class="flex items-center space-x-2">
+          <router-link to="/" class="flex items-center space-x-2 hover:scale-105 transition-transform duration-300">
             <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
               <span class="text-white font-bold text-xl">CO</span>
             </div>
@@ -252,20 +252,3 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
-
-<style scoped>
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-slide-down {
-  animation: slideDown 0.8s ease-out;
-}
-</style>

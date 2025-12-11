@@ -3,7 +3,7 @@
     <div class="container-custom">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
         <!-- Logo and Address -->
-        <div class="space-y-4">
+        <div class="space-y-4 animate-on-scroll">
           <div class="flex items-center space-x-2 mb-4">
             <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
               <span class="text-white font-bold text-xl">CO</span>
@@ -34,7 +34,7 @@
         </div>
 
         <!-- Quick Links -->
-        <div>
+        <div class="animate-on-scroll delay-200">
           <h3 class="text-xl font-bold mb-4 text-accent">Quick Links</h3>
           <ul class="space-y-2">
             <li v-for="link in quickLinks" :key="link.name">
@@ -50,7 +50,7 @@
         </div>
 
         <!-- Social Media -->
-        <div>
+        <div class="animate-on-scroll delay-300">
           <h3 class="text-xl font-bold mb-4 text-accent">Follow Us</h3>
           <div class="flex space-x-4">
             <a 
@@ -83,11 +83,10 @@
 
 <script setup lang="ts">
 import { h, onMounted } from 'vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useScrollAnimation } from '../composables/useScrollAnimation'
 import type { NavItem, SocialLink } from '../types'
 
-gsap.registerPlugin(ScrollTrigger)
+useScrollAnimation()
 
 const currentYear: number = new Date().getFullYear()
 
@@ -120,18 +119,4 @@ const socialLinks: SocialLink[] = [
     ])
   }
 ]
-
-onMounted(() => {
-  gsap.from('footer > div > div', {
-    scrollTrigger: {
-      trigger: 'footer',
-      start: 'top 80%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'power3.out'
-  })
-})
 </script>

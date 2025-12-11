@@ -7,9 +7,9 @@
       </div>
 
       <div class="container-custom relative z-10">
-        <div class="text-center text-white page-hero">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6">Company Profile</h1>
-          <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+        <div class="text-center text-white">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in-up">Company Profile</h1>
+          <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto fade-in-up delay-200">
             Discover our journey, values, and commitment to excellence in delivering world-class facility management solutions.
           </p>
         </div>
@@ -21,7 +21,7 @@
       <div class="container-custom">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <!-- Image Side -->
-          <div class="about-image relative">
+          <div class="relative animate-on-scroll">
             <div class="relative">
               <!-- Main Image Container -->
               <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
@@ -37,7 +37,7 @@
               <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
 
               <!-- Stats Card -->
-              <div class="absolute -bottom-8 -right-8 bg-white rounded-xl shadow-xl p-6 stats-card">
+              <div class="absolute -bottom-8 -right-8 bg-white rounded-xl shadow-xl p-6 animate-on-scroll delay-300">
                 <div class="text-4xl font-bold text-secondary mb-2">15+</div>
                 <div class="text-sm text-gray-600">Years of Excellence</div>
               </div>
@@ -45,7 +45,7 @@
           </div>
 
           <!-- Content Side -->
-          <div class="about-content">
+          <div class="animate-on-scroll delay-200">
             <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">About Us</h2>
             <p class="text-xl text-gray-600 mb-6 leading-relaxed">
               We are a leading provider of comprehensive facility management and event space solutions, 
@@ -62,7 +62,8 @@
               <div 
                 v-for="(point, index) in keyPoints" 
                 :key="index"
-                class="flex items-start space-x-4 about-point"
+                class="flex items-start space-x-4 animate-on-scroll"
+                :class="`delay-${(index + 3) * 100}`"
               >
                 <div class="flex-shrink-0 w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
                   <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
@@ -84,7 +85,7 @@
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div class="mission-card bg-white rounded-2xl p-8 shadow-lg">
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 animate-on-scroll">
             <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
               <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -98,7 +99,7 @@
             </p>
           </div>
 
-          <div class="vision-card bg-white rounded-2xl p-8 shadow-lg">
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 animate-on-scroll delay-200">
             <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
               <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -119,7 +120,7 @@
     <!-- Core Values -->
     <section class="py-20 bg-white">
       <div class="container-custom">
-        <div class="text-center mb-12 values-header">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Our Core Values</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             The principles that guide everything we do
@@ -130,7 +131,8 @@
           <div 
             v-for="(value, index) in values" 
             :key="index"
-            class="value-card bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
+            class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group animate-on-scroll"
+            :class="`delay-${(index + 1) * 100}`"
           >
             <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
               <component :is="value.icon" class="w-6 h-6 text-secondary group-hover:text-white transition-colors duration-300" />
@@ -145,7 +147,7 @@
     <!-- Team Section -->
     <section class="py-20 bg-gradient-to-br from-primary to-primary/90">
       <div class="container-custom">
-        <div class="text-center mb-12 team-header">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Leadership</h2>
           <p class="text-xl text-gray-300 max-w-2xl mx-auto">
             Meet the experts driving our success
@@ -156,7 +158,8 @@
           <div 
             v-for="(member, index) in team" 
             :key="index"
-            class="team-card bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300"
+            class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center border border-white/20 hover:bg-white/20 transition-all duration-300 animate-on-scroll"
+            :class="`delay-${(index + 1) * 150}`"
           >
             <div class="w-24 h-24 bg-secondary rounded-full mx-auto mb-4 flex items-center justify-center">
               <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -174,7 +177,7 @@
     <!-- CTA Section -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
-        <div class="bg-primary rounded-2xl p-12 text-white relative overflow-hidden text-center">
+        <div class="bg-primary rounded-2xl p-12 text-white relative overflow-hidden text-center animate-on-scroll">
           <div class="absolute inset-0 bg-gradient-to-r from-secondary/20 to-transparent"></div>
           <div class="relative z-10">
             <h3 class="text-3xl font-bold mb-4">Ready to Work With Us?</h3>
@@ -192,12 +195,11 @@
 </template>
 
 <script setup lang="ts">
-import { h, onMounted } from 'vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { h } from 'vue'
+import { useScrollAnimation } from '../composables/useScrollAnimation'
 import type { KeyPoint } from '../types'
 
-gsap.registerPlugin(ScrollTrigger)
+useScrollAnimation()
 
 const keyPoints: KeyPoint[] = [
   {
@@ -288,83 +290,4 @@ const team: TeamMember[] = [
     bio: 'Leading innovation in smart building technologies and digital transformation initiatives.'
   }
 ]
-
-onMounted(() => {
-  gsap.from('.page-hero', {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.about-image', {
-    scrollTrigger: {
-      trigger: '.about-image',
-      start: 'top 80%',
-    },
-    x: -100,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.about-content > *', {
-    scrollTrigger: {
-      trigger: '.about-content',
-      start: 'top 80%',
-    },
-    x: 100,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.stats-card', {
-    scrollTrigger: {
-      trigger: '.stats-card',
-      start: 'top 90%',
-    },
-    scale: 0,
-    opacity: 0,
-    duration: 0.6,
-    ease: 'back.out(1.7)'
-  })
-
-  gsap.from('.mission-card, .vision-card', {
-    scrollTrigger: {
-      trigger: '.mission-card',
-      start: 'top 80%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.value-card', {
-    scrollTrigger: {
-      trigger: '.values-header',
-      start: 'top 70%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.team-card', {
-    scrollTrigger: {
-      trigger: '.team-header',
-      start: 'top 70%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: 'power3.out'
-  })
-})
 </script>

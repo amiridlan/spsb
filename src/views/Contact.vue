@@ -7,9 +7,9 @@
       </div>
 
       <div class="container-custom relative z-10">
-        <div class="text-center text-white page-hero">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6">Get In Touch</h1>
-          <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+        <div class="text-center text-white">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in-up">Get In Touch</h1>
+          <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto fade-in-up delay-200">
             Ready to start your project? Contact us today and let's discuss how we can help your business thrive.
           </p>
         </div>
@@ -22,9 +22,9 @@
         <div class="max-w-6xl mx-auto">
           <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
             <!-- Contact Info -->
-            <div class="lg:col-span-2 space-y-8 contact-info">
+            <div class="lg:col-span-2 space-y-8">
               <!-- Contact Cards -->
-              <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll">
                 <div class="flex items-start space-x-4">
                   <div class="flex-shrink-0 w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@
                 </div>
               </div>
 
-              <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll delay-100">
                 <div class="flex items-start space-x-4">
                   <div class="flex-shrink-0 w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -62,7 +62,7 @@
                 </div>
               </div>
 
-              <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll delay-200">
                 <div class="flex items-start space-x-4">
                   <div class="flex-shrink-0 w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,13 +75,14 @@
                       <a href="mailto:info@corpname.com" class="hover:text-secondary transition-colors">
                         info@corpname.com
                       </a>
+                      <div class="text-sm text-gray-500 mt-1">We'll respond within 24 hours</div>
                     </div>
                   </div>
                 </div>
               </div>
 
               <!-- Business Hours Card -->
-              <div class="bg-gradient-to-br from-secondary to-primary rounded-xl p-6 text-white">
+              <div class="bg-gradient-to-br from-secondary to-primary rounded-xl p-6 text-white animate-on-scroll delay-300">
                 <h3 class="text-xl font-bold mb-4 flex items-center space-x-2">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -94,14 +95,18 @@
                     <span class="font-semibold">9:00 AM - 6:00 PM</span>
                   </div>
                   <div class="flex justify-between">
-                    <span>Saturday & Sunday</span>
+                    <span>Saturday</span>
+                    <span class="font-semibold">10:00 AM - 4:00 PM</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Sunday</span>
                     <span class="font-semibold">Closed</span>
                   </div>
                 </div>
               </div>
 
               <!-- Social Media -->
-              <div class="bg-gray-50 rounded-xl p-6">
+              <div class="bg-gray-50 rounded-xl p-6 animate-on-scroll delay-400">
                 <h3 class="text-xl font-bold text-primary mb-4">Follow Us</h3>
                 <div class="flex space-x-4">
                   <a 
@@ -120,7 +125,7 @@
             </div>
 
             <!-- Contact Form -->
-            <div class="lg:col-span-3 contact-form">
+            <div class="lg:col-span-3 animate-on-scroll delay-200">
               <div class="bg-gray-50 rounded-xl shadow-lg p-8">
                 <h2 class="text-3xl font-bold text-primary mb-6">Send Us a Message</h2>
                 <form @submit.prevent="handleSubmit" class="space-y-6">
@@ -258,7 +263,7 @@
     <!-- Map Section (Optional) -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Find Us</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             Visit our office or reach out through any of the channels above
@@ -266,7 +271,7 @@
         </div>
         
         <!-- Placeholder for map -->
-        <div class="bg-gray-300 rounded-xl h-96 flex items-center justify-center shadow-lg map-placeholder">
+        <div class="bg-gray-300 rounded-xl h-96 flex items-center justify-center shadow-lg animate-on-scroll delay-200">
           <div class="text-center">
             <svg class="w-16 h-16 text-gray-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
@@ -281,12 +286,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, h, onMounted } from 'vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ref, reactive, h } from 'vue'
+import { useScrollAnimation } from '../composables/useScrollAnimation'
 import type { ContactFormData, SocialLink } from '../types'
 
-gsap.registerPlugin(ScrollTrigger)
+useScrollAnimation()
 
 const isSubmitting = ref<boolean>(false)
 const showSuccess = ref<boolean>(false)
@@ -347,47 +351,4 @@ const handleSubmit = async (): Promise<void> => {
     isSubmitting.value = false
   }
 }
-
-onMounted(() => {
-  gsap.from('.page-hero', {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.contact-info > *', {
-    scrollTrigger: {
-      trigger: '.contact-info',
-      start: 'top 80%',
-    },
-    x: -50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.contact-form', {
-    scrollTrigger: {
-      trigger: '.contact-form',
-      start: 'top 80%',
-    },
-    x: 50,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.map-placeholder', {
-    scrollTrigger: {
-      trigger: '.map-placeholder',
-      start: 'top 80%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power3.out'
-  })
-})
 </script>
