@@ -7,15 +7,15 @@
       </div>
 
       <div class="container-custom relative z-10">
-        <div class="max-w-4xl mx-auto text-center text-white page-hero">
-          <div class="w-20 h-20 bg-secondary/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <div class="w-20 h-20 bg-secondary/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 fade-in scale-in">
             <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
-          <h1 class="text-5xl md:text-6xl font-bold mb-6">Facility Management</h1>
-          <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in-up">Facility Management</h1>
+          <p class="text-xl md:text-2xl text-gray-300 leading-relaxed fade-in-up delay-200">
             Comprehensive end-to-end facility management solutions that optimize operational efficiency and ensure seamless daily operations.
           </p>
         </div>
@@ -26,7 +26,7 @@
     <section class="py-20 bg-white">
       <div class="container-custom">
         <div class="max-w-4xl mx-auto">
-          <div class="overview-content">
+          <div class="animate-on-scroll">
             <h2 class="text-4xl font-bold text-primary mb-6">Complete Facility Solutions</h2>
             <p class="text-lg text-gray-600 mb-6 leading-relaxed">
               Our facility management services provide a holistic approach to maintaining and optimizing your building's 
@@ -45,7 +45,7 @@
     <!-- Core Services -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
-        <div class="text-center mb-16 services-header">
+        <div class="text-center mb-16 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Core Services</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             Comprehensive facility management across all critical areas
@@ -56,7 +56,8 @@
           <div 
             v-for="(service, index) in coreServices" 
             :key="index"
-            class="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group"
+            class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group animate-on-scroll"
+            :class="`delay-${(index + 1) * 100}`"
           >
             <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
               <component :is="service.icon" class="w-8 h-8 text-secondary group-hover:text-white transition-colors duration-300" />
@@ -83,7 +84,7 @@
     <!-- Process Section -->
     <section class="py-20 bg-white">
       <div class="container-custom">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Our Process</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             A systematic approach to facility excellence
@@ -95,7 +96,8 @@
             <div 
               v-for="(step, index) in processSteps" 
               :key="index"
-              class="process-step flex items-start space-x-6"
+              class="flex items-start space-x-6 animate-on-scroll"
+              :class="`delay-${(index + 1) * 100}`"
             >
               <div class="flex-shrink-0 w-16 h-16 bg-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold">
                 {{ index + 1 }}
@@ -114,7 +116,7 @@
     <section class="py-20 bg-gradient-to-br from-secondary to-primary">
       <div class="container-custom">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="tech-content text-white">
+          <div class="text-white animate-on-scroll">
             <h2 class="text-4xl font-bold mb-6">Technology-Driven Solutions</h2>
             <p class="text-xl text-gray-200 mb-8 leading-relaxed">
               We leverage cutting-edge technology to deliver superior facility management services, 
@@ -138,9 +140,9 @@
             </div>
           </div>
 
-          <div class="tech-image">
+          <div class="animate-on-scroll delay-200">
             <div class="relative">
-              <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+              <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500">
                 <div class="aspect-square bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center p-8">
                   <svg class="w-full h-full text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
@@ -158,7 +160,7 @@
     <!-- Benefits Grid -->
     <section class="py-20 bg-white">
       <div class="container-custom">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Why Choose Our Services</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             The advantages of partnering with industry leaders
@@ -169,7 +171,8 @@
           <div 
             v-for="(benefit, index) in benefits" 
             :key="index"
-            class="benefit-card text-center group"
+            class="text-center group animate-on-scroll"
+            :class="`delay-${(index + 1) * 100}`"
           >
             <div class="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
               <component :is="benefit.icon" class="w-10 h-10 text-accent group-hover:text-white transition-colors duration-300" />
@@ -184,7 +187,7 @@
     <!-- Industries Served -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Industries We Serve</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             Specialized expertise across diverse sectors
@@ -195,7 +198,8 @@
           <div 
             v-for="(industry, index) in industries" 
             :key="index"
-            class="industry-card bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 group"
+            class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 group animate-on-scroll"
+            :class="`delay-${(index + 1) * 50}`"
           >
             <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
               <component :is="industry.icon" class="w-6 h-6 text-secondary group-hover:text-white transition-colors duration-300" />
@@ -209,7 +213,7 @@
     <!-- CTA Section -->
     <section class="py-20 bg-white">
       <div class="container-custom">
-        <div class="bg-primary rounded-2xl p-12 text-white relative overflow-hidden text-center">
+        <div class="bg-primary rounded-2xl p-12 text-white relative overflow-hidden text-center animate-on-scroll">
           <div class="absolute inset-0 bg-gradient-to-r from-secondary/20 to-transparent"></div>
           <div class="relative z-10 max-w-3xl mx-auto">
             <h2 class="text-4xl font-bold mb-6">Experience Superior Facility Management</h2>
@@ -232,11 +236,10 @@
 </template>
 
 <script setup lang="ts">
-import { h, onMounted } from 'vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { h } from 'vue'
+import { useScrollAnimation } from '../../composables/useScrollAnimation'
 
-gsap.registerPlugin(ScrollTrigger)
+useScrollAnimation()
 
 interface CoreService {
   title: string
@@ -425,15 +428,14 @@ const benefits: Benefit[] = [
     description: 'Stay compliant with all regulations through our comprehensive knowledge and monitoring.',
     icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
       h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' })
-    ])
-  }
+])
+}
 ]
-
 const industries: Industry[] = [
-  {
-    name: 'Corporate Offices',
-    icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' })
+{
+name: 'Corporate Offices',
+icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
+h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' })
 ])
 },
 {
@@ -479,89 +481,4 @@ h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width
 ])
 }
 ]
-onMounted(() => {
-gsap.from('.page-hero > *', {
-y: 50,
-opacity: 0,
-duration: 1,
-stagger: 0.2,
-ease: 'power3.out'
-})
-gsap.from('.overview-content > *', {
-scrollTrigger: {
-trigger: '.overview-content',
-start: 'top 80%',
-},
-y: 30,
-opacity: 0,
-duration: 0.8,
-stagger: 0.2,
-ease: 'power3.out'
-})
-gsap.from('.service-card', {
-scrollTrigger: {
-trigger: '.services-header',
-start: 'top 70%',
-},
-y: 50,
-opacity: 0,
-duration: 0.8,
-stagger: 0.1,
-ease: 'power3.out'
-})
-gsap.from('.process-step', {
-scrollTrigger: {
-trigger: '.process-step',
-start: 'top 80%',
-},
-x: -50,
-opacity: 0,
-duration: 0.8,
-stagger: 0.2,
-ease: 'power3.out'
-})
-gsap.from('.tech-content > *', {
-scrollTrigger: {
-trigger: '.tech-content',
-start: 'top 80%',
-},
-x: -50,
-opacity: 0,
-duration: 0.8,
-stagger: 0.15,
-ease: 'power3.out'
-})
-gsap.from('.tech-image', {
-scrollTrigger: {
-trigger: '.tech-image',
-start: 'top 80%',
-},
-x: 50,
-opacity: 0,
-duration: 0.8,
-ease: 'power3.out'
-})
-gsap.from('.benefit-card', {
-scrollTrigger: {
-trigger: '.benefit-card',
-start: 'top 80%',
-},
-y: 30,
-opacity: 0,
-duration: 0.8,
-stagger: 0.1,
-ease: 'power3.out'
-})
-gsap.from('.industry-card', {
-scrollTrigger: {
-trigger: '.industry-card',
-start: 'top 80%',
-},
-scale: 0.9,
-opacity: 0,
-duration: 0.6,
-stagger: 0.05,
-ease: 'power3.out'
-})
-})
 </script>

@@ -7,14 +7,14 @@
       </div>
 
       <div class="container-custom relative z-10">
-        <div class="max-w-4xl mx-auto text-center text-white page-hero">
-          <div class="w-20 h-20 bg-secondary/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <div class="w-20 h-20 bg-secondary/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 fade-in scale-in">
             <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
             </svg>
           </div>
-          <h1 class="text-5xl md:text-6xl font-bold mb-6">Buildings Management</h1>
-          <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in-up">Buildings Management</h1>
+          <p class="text-xl md:text-2xl text-gray-300 leading-relaxed fade-in-up delay-200">
             Comprehensive commercial and residential building management services that maximize property value and tenant satisfaction.
           </p>
         </div>
@@ -25,7 +25,7 @@
     <section class="py-20 bg-white">
       <div class="container-custom">
         <div class="max-w-4xl mx-auto">
-          <div class="overview-content">
+          <div class="animate-on-scroll">
             <h2 class="text-4xl font-bold text-primary mb-6">Excellence in Property Management</h2>
             <p class="text-lg text-gray-600 mb-6 leading-relaxed">
               Our building management services encompass every aspect of property operations, from tenant relations to 
@@ -44,7 +44,7 @@
     <!-- Service Categories -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
-        <div class="text-center mb-16 categories-header">
+        <div class="text-center mb-16 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Our Services</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             Comprehensive management for every aspect of your property
@@ -55,7 +55,8 @@
           <div 
             v-for="(category, index) in categories" 
             :key="index"
-            class="category-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 animate-on-scroll"
+            :class="`delay-${(index + 1) * 200}`"
           >
             <div class="flex items-start space-x-6">
               <div class="flex-shrink-0 w-16 h-16 bg-secondary/10 rounded-xl flex items-center justify-center">
@@ -87,7 +88,7 @@
     <section class="py-20 bg-white">
       <div class="container-custom">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="benefits-content">
+          <div class="animate-on-scroll">
             <h2 class="text-4xl font-bold text-primary mb-6">Why Choose Our Building Management?</h2>
             <div class="space-y-6">
               <div 
@@ -108,9 +109,9 @@
             </div>
           </div>
 
-          <div class="benefits-image">
+          <div class="animate-on-scroll delay-200">
             <div class="relative">
-              <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+              <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500">
                 <div class="aspect-[4/3] bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
                   <svg class="w-64 h-64 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
@@ -128,7 +129,7 @@
     <!-- Statistics Section -->
     <section class="py-20 bg-gradient-to-br from-primary to-primary/90">
       <div class="container-custom">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-4xl font-bold text-white mb-4">Our Track Record</h2>
           <p class="text-xl text-gray-300">Proven results across our portfolio</p>
         </div>
@@ -137,7 +138,8 @@
           <div 
             v-for="(stat, index) in stats" 
             :key="index"
-            class="stat-card text-center"
+            class="text-center animate-on-scroll"
+            :class="`delay-${(index + 1) * 100}`"
           >
             <div class="text-5xl font-bold text-accent mb-2">{{ stat.value }}</div>
             <div class="text-white font-semibold mb-1">{{ stat.label }}</div>
@@ -150,60 +152,58 @@
     <!-- Property Types -->
     <section class="py-20 bg-white">
       <div class="container-custom">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Property Types We Manage</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Specialized expertise across diverse property categories
-          </p>
-        </div>
+             Specialized expertise across diverse property categories
+      </p>
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div 
-            v-for="(type, index) in propertyTypes" 
-            :key="index"
-            class="property-card bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 group"
-          >
-            <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
-              <component :is="type.icon" class="w-7 h-7 text-secondary group-hover:text-white transition-colors duration-300" />
-            </div>
-            <h3 class="text-xl font-bold text-primary mb-2">{{ type.name }}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">{{ type.description }}</p>
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div 
+        v-for="(type, index) in propertyTypes" 
+        :key="index"
+        class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 group animate-on-scroll"
+        :class="`delay-${(index + 1) * 100}`"
+      >
+        <div class="w-14 h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+          <component :is="type.icon" class="w-7 h-7 text-secondary group-hover:text-white transition-colors duration-300" />
         </div>
+        <h3 class="text-xl font-bold text-primary mb-2">{{ type.name }}</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">{{ type.description }}</p>
       </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-gray-50">
-      <div class="container-custom">
-        <div class="bg-primary rounded-2xl p-12 text-white relative overflow-hidden text-center">
-          <div class="absolute inset-0 bg-gradient-to-r from-secondary/20 to-transparent"></div>
-          <div class="relative z-10 max-w-3xl mx-auto">
-            <h2 class="text-4xl font-bold mb-6">Let Us Manage Your Property</h2>
-            <p class="text-xl text-gray-300 mb-8">
-              Partner with us to maximize your property's potential and ensure seamless operations
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-              <router-link to="/contact" class="btn-accent">
-                Request a Consultation
-              </router-link>
-              <a href="tel:+15551234567" class="btn-primary border-2 border-white bg-transparent hover:bg-white hover:text-primary">
-                Call (555) 123-4567
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gray-50">
+  <div class="container-custom">
+    <div class="bg-primary rounded-2xl p-12 text-white relative overflow-hidden text-center animate-on-scroll">
+      <div class="absolute inset-0 bg-gradient-to-r from-secondary/20 to-transparent"></div>
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <h2 class="text-4xl font-bold mb-6">Let Us Manage Your Property</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Partner with us to maximize your property's potential and ensure seamless operations
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <router-link to="/contact" class="btn-accent">
+            Request a Consultation
+          </router-link>
+          <a href="tel:+15551234567" class="btn-primary border-2 border-white bg-transparent hover:bg-white hover:text-primary">
+            Call (555) 123-4567
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section></div>
 </template>
-
 <script setup lang="ts">
-import { h, onMounted } from 'vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { h } from 'vue'
+import { useScrollAnimation } from '../../composables/useScrollAnimation'
 
-gsap.registerPlugin(ScrollTrigger)
+useScrollAnimation()
 
 interface Category {
   title: string
@@ -374,85 +374,4 @@ const propertyTypes: PropertyType[] = [
     ])
   }
 ]
-
-onMounted(() => {
-  gsap.from('.page-hero > *', {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.overview-content > *', {
-    scrollTrigger: {
-      trigger: '.overview-content',
-      start: 'top 80%',
-    },
-    y: 30,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.category-card', {
-    scrollTrigger: {
-      trigger: '.categories-header',
-      start: 'top 70%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.benefits-content > *', {
-    scrollTrigger: {
-      trigger: '.benefits-content',
-      start: 'top 80%',
-    },
-    x: -50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.benefits-image', {
-    scrollTrigger: {
-      trigger: '.benefits-image',
-      start: 'top 80%',
-    },
-    x: 50,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.stat-card', {
-    scrollTrigger: {
-      trigger: '.stat-card',
-      start: 'top 80%',
-    },
-    y: 30,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: 'power3.out'
-  })
-
-  gsap.from('.property-card', {
-    scrollTrigger: {
-      trigger: '.property-card',
-      start: 'top 80%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: 'power3.out'
-  })
-})
 </script>
