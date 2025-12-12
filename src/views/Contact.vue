@@ -19,240 +19,105 @@
     <!-- Contact Section -->
     <section class="py-20 bg-white">
       <div class="container-custom">
-        <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            <!-- Contact Info -->
-            <div class="lg:col-span-2 space-y-8">
-              <!-- Contact Cards -->
-              <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll">
-                <div class="flex items-start space-x-4">
-                  <div class="flex-shrink-0 w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="text-primary font-bold text-lg mb-2">Visit Us</div>
-                    <div class="text-gray-600">
-                      123 Business Avenue<br>
-                      Suite 100<br>
-                      City, State 12345
-                    </div>
-                  </div>
-                </div>
+        <div class="max-w-5xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Contact Cards -->
+            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-all duration-300 animate-on-scroll">
+              <div class="w-16 h-16 bg-secondary rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
               </div>
-
-              <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll delay-100">
-                <div class="flex items-start space-x-4">
-                  <div class="flex-shrink-0 w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="text-primary font-bold text-lg mb-2">Call Us</div>
-                    <div class="text-gray-600">
-                      <a href="tel:+15551234567" class="hover:text-secondary transition-colors">
-                        (555) 123-4567
-                      </a>
-                      <div class="text-sm text-gray-500 mt-1">Mon-Fri: 9AM - 6PM</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll delay-200">
-                <div class="flex items-start space-x-4">
-                  <div class="flex-shrink-0 w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div class="text-primary font-bold text-lg mb-2">Email Us</div>
-                    <div class="text-gray-600">
-                      <a href="mailto:info@corpname.com" class="hover:text-secondary transition-colors">
-                        info@corpname.com
-                      </a>
-                      <div class="text-sm text-gray-500 mt-1">We'll respond within 24 hours</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Business Hours Card -->
-              <div class="bg-gradient-to-br from-secondary to-primary rounded-xl p-6 text-white animate-on-scroll delay-300">
-                <h3 class="text-xl font-bold mb-4 flex items-center space-x-2">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                  <span>Business Hours</span>
-                </h3>
-                <div class="space-y-2 text-gray-100">
-                  <div class="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span class="font-semibold">9:00 AM - 6:00 PM</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span>Saturday</span>
-                    <span class="font-semibold">10:00 AM - 4:00 PM</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span>Sunday</span>
-                    <span class="font-semibold">Closed</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Social Media -->
-              <div class="bg-gray-50 rounded-xl p-6 animate-on-scroll delay-400">
-                <h3 class="text-xl font-bold text-primary mb-4">Follow Us</h3>
-                <div class="flex space-x-4">
-                  <a 
-                    v-for="social in socialLinks" 
-                    :key="social.name"
-                    :href="social.href"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="w-12 h-12 bg-white hover:bg-secondary rounded-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:text-white"
-                    :aria-label="social.name"
-                  >
-                    <component :is="social.icon" class="w-6 h-6" />
-                  </a>
+              <div class="text-center">
+                <div class="text-primary font-bold text-xl mb-3">Visit Us</div>
+                <div class="text-gray-600 leading-relaxed">
+                  123 Business Avenue<br>
+                  Suite 100<br>
+                  City, State 12345
                 </div>
               </div>
             </div>
 
-            <!-- Contact Form -->
-            <div class="lg:col-span-3 animate-on-scroll delay-200">
-              <div class="bg-gray-50 rounded-xl shadow-lg p-8">
-                <h2 class="text-3xl font-bold text-primary mb-6">Send Us a Message</h2>
-                <form @submit.prevent="handleSubmit" class="space-y-6">
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label for="firstName" class="block text-sm font-semibold text-primary mb-2">
-                        First Name *
-                      </label>
-                      <input
-                        id="firstName"
-                        v-model="formData.firstName"
-                        type="text"
-                        required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300 bg-white"
-                        placeholder="John"
-                      />
-                    </div>
+            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-all duration-300 animate-on-scroll delay-100">
+              <div class="w-16 h-16 bg-secondary rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div class="text-center">
+                <div class="text-primary font-bold text-xl mb-3">Call Us</div>
+                <div class="text-gray-600">
+                  <a href="tel:+15551234567" class="hover:text-secondary transition-colors text-lg font-semibold">
+                    (555) 123-4567
+                  </a>
+                  <div class="text-sm text-gray-500 mt-2">Mon-Fri: 9AM - 6PM</div>
+                </div>
+              </div>
+            </div>
 
-                    <div>
-                      <label for="lastName" class="block text-sm font-semibold text-primary mb-2">
-                        Last Name *
-                      </label>
-                      <input
-                        id="lastName"
-                        v-model="formData.lastName"
-                        type="text"
-                        required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300 bg-white"
-                        placeholder="Doe"
-                      />
-                    </div>
-                  </div>
+            <div class="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-all duration-300 animate-on-scroll delay-200">
+              <div class="w-16 h-16 bg-secondary rounded-lg flex items-center justify-center mb-6 mx-auto">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div class="text-center">
+                <div class="text-primary font-bold text-xl mb-3">Email Us</div>
+                <div class="text-gray-600">
+                  <a href="mailto:info@corpname.com" class="hover:text-secondary transition-colors text-lg font-semibold">
+                    info@corpname.com
+                  </a>
+                  <div class="text-sm text-gray-500 mt-2">We'll respond within 24 hours</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                  <div>
-                    <label for="email" class="block text-sm font-semibold text-primary mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      id="email"
-                      v-model="formData.email"
-                      type="email"
-                      required
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300 bg-white"
-                      placeholder="john.doe@example.com"
-                    />
-                  </div>
+          <!-- Business Hours & Social Media -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <!-- Business Hours Card -->
+            <div class="bg-gradient-to-br from-secondary to-primary rounded-xl p-8 text-white animate-on-scroll delay-300">
+              <h3 class="text-2xl font-bold mb-6 flex items-center space-x-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Business Hours</span>
+              </h3>
+              <div class="space-y-3 text-gray-100">
+                <div class="flex justify-between items-center pb-3 border-b border-white/20">
+                  <span class="text-lg">Monday - Friday</span>
+                  <span class="font-bold text-accent">9:00 AM - 6:00 PM</span>
+                </div>
+                <div class="flex justify-between items-center pb-3 border-b border-white/20">
+                  <span class="text-lg">Saturday</span>
+                  <span class="font-bold text-accent">10:00 AM - 4:00 PM</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-lg">Sunday</span>
+                  <span class="font-bold text-accent">Closed</span>
+                </div>
+              </div>
+            </div>
 
-                  <div>
-                    <label for="phone" class="block text-sm font-semibold text-primary mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      id="phone"
-                      v-model="formData.phone"
-                      type="tel"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300 bg-white"
-                      placeholder="(555) 123-4567"
-                    />
-                  </div>
-
-                  <div>
-                    <label for="service" class="block text-sm font-semibold text-primary mb-2">
-                      Service Interest *
-                    </label>
-                    <select
-                      id="service"
-                      v-model="formData.service"
-                      required
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300 bg-white"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="event-spaces">Event Spaces</option>
-                      <option value="buildings">Buildings</option>
-                      <option value="facility-management">Facility Management</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label for="message" class="block text-sm font-semibold text-primary mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      v-model="formData.message"
-                      required
-                      rows="6"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300 resize-none bg-white"
-                      placeholder="Tell us about your project..."
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    :disabled="isSubmitting"
-                    class="w-full btn-primary flex items-center justify-center space-x-2"
-                    :class="{ 'opacity-50 cursor-not-allowed': isSubmitting }"
-                  >
-                    <span v-if="!isSubmitting">Send Message</span>
-                    <span v-else class="flex items-center space-x-2">
-                      <svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      <span>Sending...</span>
-                    </span>
-                  </button>
-
-                  <!-- Success Message -->
-                  <transition
-                    enter-active-class="transition duration-300 ease-out"
-                    enter-from-class="opacity-0 scale-95"
-                    enter-to-class="opacity-100 scale-100"
-                    leave-active-class="transition duration-200 ease-in"
-                    leave-from-class="opacity-100 scale-100"
-                    leave-to-class="opacity-0 scale-95"
-                  >
-                    <div v-if="showSuccess" class="bg-secondary/10 border border-secondary text-secondary px-4 py-3 rounded-lg">
-                      <div class="flex items-center space-x-2">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                        <span class="font-semibold">Thank you! Your message has been sent successfully.</span>
-                      </div>
-                    </div>
-                  </transition>
-                </form>
+            <!-- Social Media Card -->
+            <div class="bg-gray-50 rounded-xl p-8 animate-on-scroll delay-400">
+              <h3 class="text-2xl font-bold text-primary mb-6">Follow Us</h3>
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                Stay connected with us on social media for the latest updates, news, and special offers.
+              </p>
+              <div class="flex space-x-4">
+                <a 
+                  v-for="social in socialLinks" 
+                  :key="social.name"
+                  :href="social.href"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-14 h-14 bg-white hover:bg-secondary rounded-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-md hover:text-white border-2 border-gray-200 hover:border-secondary"
+                  :aria-label="social.name"
+                >
+                  <component :is="social.icon" class="w-7 h-7" />
+                </a>
               </div>
             </div>
           </div>
@@ -260,7 +125,7 @@
       </div>
     </section>
 
-    <!-- Map Section (Optional) -->
+    <!-- Map Section -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
         <div class="text-center mb-12 animate-on-scroll">
@@ -271,13 +136,13 @@
         </div>
         
         <!-- Placeholder for map -->
-        <div class="bg-gray-300 rounded-xl h-96 flex items-center justify-center shadow-lg animate-on-scroll delay-200">
+        <div class="bg-gray-300 rounded-xl h-96 flex items-center justify-center shadow-lg animate-on-scroll delay-200 hover:shadow-2xl transition-all duration-300">
           <div class="text-center">
-            <svg class="w-16 h-16 text-gray-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-20 h-20 text-gray-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
             </svg>
-            <p class="text-gray-600 font-medium">Map Integration Placeholder</p>
-            <p class="text-sm text-gray-500 mt-2">123 Business Avenue, Suite 100, City, State 12345</p>
+            <p class="text-gray-600 font-medium text-lg mb-2">Map Integration Placeholder</p>
+            <p class="text-sm text-gray-500">123 Business Avenue, Suite 100, City, State 12345</p>
           </div>
         </div>
       </div>
@@ -286,23 +151,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, h } from 'vue'
+import { h } from 'vue'
 import { useScrollAnimation } from '../composables/useScrollAnimation'
-import type { ContactFormData, SocialLink } from '../types'
+import type { SocialLink } from '../types'
 
 useScrollAnimation()
-
-const isSubmitting = ref<boolean>(false)
-const showSuccess = ref<boolean>(false)
-
-const formData = reactive<ContactFormData>({
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  service: '',
-  message: ''
-})
 
 const socialLinks: SocialLink[] = [
   { 
@@ -327,28 +180,4 @@ const socialLinks: SocialLink[] = [
     ])
   }
 ]
-
-const handleSubmit = async (): Promise<void> => {
-  try {
-    isSubmitting.value = true
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    // Reset form
-    Object.keys(formData).forEach(key => {
-      formData[key as keyof ContactFormData] = ''
-    })
-    
-    // Show success message
-    showSuccess.value = true
-    setTimeout(() => {
-      showSuccess.value = false
-    }, 5000)
-  } catch (error) {
-    console.error('Form submission error:', error)
-  } finally {
-    isSubmitting.value = false
-  }
-}
 </script>
