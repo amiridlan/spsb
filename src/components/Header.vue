@@ -1,14 +1,14 @@
 <template>
   <header class="fixed top-0 left-0 right-0 z-40 bg-white shadow-md transition-all duration-300 fade-in-down" :class="{ 'bg-white/95 backdrop-blur-sm': scrolled }">
     <nav class="container-custom">
-      <div class="flex items-center justify-between h-20">
+      <div class="flex items-center justify-between h-30">
         <!-- Logo -->
         <div class="flex-shrink-0">
           <router-link to="/" class="flex items-center space-x-2 hover:scale-105 transition-transform duration-300">
-            <div class="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
-              <span class="text-white font-bold text-xl">CO</span>
+            <div class="w-24 h-24 rounded-lg flex items-center justify-center">
+              <img src="/spsb-trans.png" alt="SPSB Logo" class="w-full h-full object-contain" />
             </div>
-            <span class="text-2xl font-bold text-primary hidden sm:block">CorpName</span>
+            <span class="text-2xl font-bold text-primary hidden sm:block">Solatis Power Sdn Bhd</span>
           </router-link>
         </div>
 
@@ -19,7 +19,7 @@
             class="text-primary hover:text-secondary font-medium transition-colors duration-300 relative group"
             :class="{ 'text-secondary': isActiveRoute('/') }"
           >
-            Home
+            Utama
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" :class="{ 'w-full': isActiveRoute('/') }"></span>
           </router-link>
 
@@ -33,7 +33,7 @@
               class="text-primary hover:text-secondary font-medium transition-colors duration-300 relative group flex items-center space-x-1"
               :class="{ 'text-secondary': isServicesActive }"
             >
-              <span>Services</span>
+              <span>Perkhidmatan Kami</span>
               <svg 
                 class="w-4 h-4 transition-transform duration-300"
                 :class="{ 'rotate-180': showServicesDropdown }"
@@ -85,7 +85,7 @@
             class="text-primary hover:text-secondary font-medium transition-colors duration-300 relative group"
             :class="{ 'text-secondary': isActiveRoute('/company-profile') }"
           >
-            Company Profile
+            Profil Syarikat
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" :class="{ 'w-full': isActiveRoute('/company-profile') }"></span>
           </router-link>
 
@@ -94,7 +94,7 @@
             class="text-primary hover:text-secondary font-medium transition-colors duration-300 relative group"
             :class="{ 'text-secondary': isActiveRoute('/contact') }"
           >
-            Contact
+            Hubungi Kami
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" :class="{ 'w-full': isActiveRoute('/contact') }"></span>
           </router-link>
         </div>
@@ -127,7 +127,7 @@
             class="block px-4 py-3 text-primary hover:bg-secondary/10 hover:text-secondary font-medium transition-colors rounded-lg"
             @click="mobileMenuOpen = false"
           >
-            Home
+            Utama
           </router-link>
 
           <!-- Mobile Services Submenu -->
@@ -136,7 +136,7 @@
               @click="mobileServicesOpen = !mobileServicesOpen"
               class="w-full flex items-center justify-between px-4 py-3 text-primary hover:bg-secondary/10 hover:text-secondary font-medium transition-colors rounded-lg"
             >
-              <span>Services</span>
+              <span>Perkhidmatan Kami</span>
               <svg 
                 class="w-4 h-4 transition-transform duration-300"
                 :class="{ 'rotate-180': mobileServicesOpen }"
@@ -176,7 +176,7 @@
             class="block px-4 py-3 text-primary hover:bg-secondary/10 hover:text-secondary font-medium transition-colors rounded-lg"
             @click="mobileMenuOpen = false"
           >
-            Company Profile
+            Profil Syarikat
           </router-link>
 
           <router-link 
@@ -184,7 +184,7 @@
             class="block px-4 py-3 text-primary hover:bg-secondary/10 hover:text-secondary font-medium transition-colors rounded-lg"
             @click="mobileMenuOpen = false"
           >
-            Contact
+            Hubungi Kami
           </router-link>
         </div>
       </transition>
@@ -204,23 +204,23 @@ const mobileServicesOpen = ref<boolean>(false)
 
 const servicesMenu = [
   {
-    name: 'Event Spaces',
+    name: 'Ruang Majlis',
     to: '/services/event-spaces',
-    description: 'Premium venues for events',
+    description: 'Tempah ruang premium untuk setiap majlis istimewa anda',
     icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
       h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' })
     ])
   },
   {
-    name: 'Buildings',
+    name: 'Bangunan Ofis',
     to: '/services/buildings',
-    description: 'Building management solutions',
+    description: 'Sewa atau beli bangunan untuk perniagaan anda',
     icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
       h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z' })
     ])
   },
   {
-    name: 'Facility Management',
+    name: 'Pengurusan Fasiliti',
     to: '/services/facility-management',
     description: 'Complete facility solutions',
     icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [

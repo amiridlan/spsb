@@ -41,38 +41,11 @@
       </div>
     </section>
 
-    <!-- Features Grid -->
-    <section class="py-20 bg-gray-50">
-      <div class="container-custom">
-        <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">What We Offer</h2>
-          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Everything you need for a successful event
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div 
-            v-for="(feature, index) in features" 
-            :key="index"
-            class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group animate-on-scroll"
-            :class="`delay-${(index + 1) * 100}`"
-          >
-            <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
-              <component :is="feature.icon" class="w-8 h-8 text-secondary group-hover:text-white transition-colors duration-300" />
-            </div>
-            <h3 class="text-xl font-bold text-primary mb-3">{{ feature.title }}</h3>
-            <p class="text-gray-600 leading-relaxed">{{ feature.description }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Space Options -->
+        <!-- Space Options -->
     <section class="py-20 bg-white">
       <div class="container-custom">
         <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Available Spaces</h2>
+          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Ruang yang Disediakan</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             Choose the perfect venue for your event
           </p>
@@ -120,6 +93,33 @@
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 bg-gray-50">
+      <div class="container-custom">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">What We Offer</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Everything you need for a successful event
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div 
+            v-for="(feature, index) in features" 
+            :key="index"
+            class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group animate-on-scroll"
+            :class="`delay-${(index + 1) * 100}`"
+          >
+            <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+              <component :is="feature.icon" class="w-8 h-8 text-secondary group-hover:text-white transition-colors duration-300" />
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">{{ feature.title }}</h3>
+            <p class="text-gray-600 leading-relaxed">{{ feature.description }}</p>
           </div>
         </div>
       </div>
@@ -215,8 +215,8 @@ const features: Feature[] = [
 
 const spaces: Space[] = [
   {
-    name: 'Grand Ballroom',
-    capacity: 'Up to 500 guests',
+    name: 'CASSIA',
+    capacity: 'Up to 300 guests',
     size: '5,000 sq ft',
     description: 'Our largest and most elegant space, perfect for conferences, galas, and large celebrations.',
     amenities: [
@@ -228,8 +228,8 @@ const spaces: Space[] = [
     ]
   },
   {
-    name: 'Executive Conference Room',
-    capacity: 'Up to 50 guests',
+    name: 'Mini CASSIA',
+    capacity: 'Up to 100 guests',
     size: '800 sq ft',
     description: 'Sophisticated boardroom-style space ideal for corporate meetings and presentations.',
     amenities: [
@@ -238,32 +238,6 @@ const spaces: Space[] = [
       'Executive seating',
       'Private entrance',
       'Complimentary refreshments'
-    ]
-  },
-  {
-    name: 'Innovation Hub',
-    capacity: 'Up to 100 guests',
-    size: '1,500 sq ft',
-    description: 'Modern, flexible space designed for workshops, training sessions, and collaborative events.',
-    amenities: [
-      'Modular furniture',
-      'Multiple breakout areas',
-      'Tech charging stations',
-      'Natural lighting',
-      'Collaboration tools'
-    ]
-  },
-  {
-    name: 'Garden Terrace',
-    capacity: 'Up to 150 guests',
-    size: '2,000 sq ft',
-    description: 'Beautiful outdoor venue with covered areas, perfect for receptions and networking events.',
-    amenities: [
-      'Climate-controlled sections',
-      'Ambient lighting',
-      'Outdoor bar setup',
-      'Garden views',
-      'Weather contingency plan'
     ]
   }
 ]

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <LoadingSpinner />
+    <!-- <LoadingSpinner /> -->
     <Header />
     <main class="min-h-screen">
       <router-view />
@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import LoadingSpinner from './components/LoadingSpinner.vue'
+// import LoadingSpinner from './components/LoadingSpinner.vue'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 </script>

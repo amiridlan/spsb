@@ -3,7 +3,7 @@
     <div class="container-custom overflow-visible">
       <!-- Section Header -->
       <div class="text-center mb-16 animate-on-scroll">
-        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Our Services</h2>
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Perkhidmatan Kami</h2>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
           Comprehensive solutions tailored to meet your business needs
         </p>
