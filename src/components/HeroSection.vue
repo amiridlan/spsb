@@ -1,6 +1,6 @@
 <template>
   <section id="home" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-primary to-primary/90 overflow-hidden">
-    <!-- Background Pattern -->
+    <!-- Background Color -->
     <div class="absolute inset-0 opacity-10">
       <div class="absolute inset-0 bg-primary"></div>
     </div>
@@ -16,12 +16,12 @@
         <!-- Content -->
         <div class="text-white">
           <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight fade-in-up">
-            Building the 
-            <span class="text-accent">Future</span> 
-            Together
+            Membina 
+            <span class="text-accent">Masa Hadapan</span> 
+            Bersama
           </h1>
           <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed fade-in-up delay-200">
-            Innovative solutions for event spaces, buildings, and comprehensive facility management services.
+            Penyelesaian inovatif untuk penyewaan ruang majlis, bangunan pejabat, dan perkhidmatan pengurusan fasiliti yang komprehensif.
           </p>
           <div class="flex flex-wrap gap-4 fade-in-up delay-300">
             <a href="#services" @click.prevent="scrollToServices" class="btn-accent">
@@ -30,22 +30,6 @@
             <router-link to="/contact" class="btn-primary border-2 border-white bg-transparent hover:bg-white hover:text-primary">
               Get in Touch
             </router-link>
-          </div>
-
-          <!-- Stats -->
-          <div class="grid grid-cols-3 gap-6 mt-12 pt-12 border-t border-white/20">
-            <div class="fade-in-up delay-400">
-              <div class="text-3xl md:text-4xl font-bold text-accent mb-2">500+</div>
-              <div class="text-sm text-gray-300">Projects Completed</div>
-            </div>
-            <div class="fade-in-up delay-500">
-              <div class="text-3xl md:text-4xl font-bold text-accent mb-2">15+</div>
-              <div class="text-sm text-gray-300">Years Experience</div>
-            </div>
-            <div class="fade-in-up delay-600">
-              <div class="text-3xl md:text-4xl font-bold text-accent mb-2">98%</div>
-              <div class="text-sm text-gray-300">Client Satisfaction</div>
-            </div>
           </div>
         </div>
 
@@ -65,12 +49,6 @@
       </div>
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 fade-in delay-700">
-      <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-        <div class="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></div>
-      </div>
-    </div>
   </section>
 </template>
 
