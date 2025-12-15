@@ -12,7 +12,7 @@
     </div>
 
     <div class="container-custom relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-24">
         <!-- Content -->
         <div class="text-white">
           <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight fade-in-up">

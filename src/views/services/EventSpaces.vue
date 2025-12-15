@@ -1,9 +1,9 @@
 <template>
   <div class="event-spaces-page">
     <!-- Page Hero -->
-    <section class="relative py-24 bg-gradient-to-br from-primary via-primary to-primary/90 overflow-hidden">
+    <section class="relative py-24 mt-14 bg-gradient-to-br from-primary via-primary to-primary/90 overflow-hidden">
       <div class="absolute inset-0 opacity-10">
-        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%231F8A70\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        <div class="absolute inset-0 bg-primary"></div>
       </div>
 
       <div class="container-custom relative z-10">
@@ -17,26 +17,6 @@
           <p class="text-xl md:text-2xl text-gray-300 leading-relaxed fade-in-up delay-200">
             Premium venues designed for corporate events, conferences, and special occasions that leave lasting impressions.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Overview Section -->
-    <section class="py-20 bg-white">
-      <div class="container-custom">
-        <div class="max-w-4xl mx-auto">
-          <div class="animate-on-scroll">
-            <h2 class="text-4xl font-bold text-primary mb-6">World-Class Event Venues</h2>
-            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-              Our event spaces are meticulously designed to accommodate a wide range of events, from intimate board meetings 
-              to large-scale conferences and celebrations. Each venue combines modern aesthetics with cutting-edge technology 
-              to ensure your event runs smoothly and leaves a lasting impression on your attendees.
-            </p>
-            <p class="text-lg text-gray-600 leading-relaxed">
-              Whether you're hosting a product launch, corporate training, wedding reception, or networking event, our 
-              versatile spaces can be customized to match your vision and requirements perfectly.
-            </p>
-          </div>
         </div>
       </div>
     </section>
