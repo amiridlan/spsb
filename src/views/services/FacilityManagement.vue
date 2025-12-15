@@ -22,168 +22,6 @@
       </div>
     </section>
 
-    <!-- Overview Section -->
-    <section class="py-20 bg-white">
-      <div class="container-custom">
-        <div class="max-w-4xl mx-auto">
-          <div class="animate-on-scroll">
-            <h2 class="text-4xl font-bold text-primary mb-6">Complete Facility Solutions</h2>
-            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-              Our facility management services provide a holistic approach to maintaining and optimizing your building's 
-              operations. From preventive maintenance and emergency repairs to janitorial services and security management, 
-              we ensure every aspect of your facility runs smoothly and efficiently.
-            </p>
-            <p class="text-lg text-gray-600 leading-relaxed">
-              With 24/7 support and a team of certified professionals, we deliver the peace of mind that comes from knowing 
-              your facility is in expert hands, allowing you to focus on your core business objectives.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Core Services -->
-    <section class="py-20 bg-gray-50">
-      <div class="container-custom">
-        <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Core Services</h2>
-          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Comprehensive facility management across all critical areas
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div 
-            v-for="(service, index) in coreServices" 
-            :key="index"
-            class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group animate-on-scroll"
-            :class="`delay-${(index + 1) * 100}`"
-          >
-            <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
-              <component :is="service.icon" class="w-8 h-8 text-secondary group-hover:text-white transition-colors duration-300" />
-            </div>
-            <h3 class="text-xl font-bold text-primary mb-3">{{ service.title }}</h3>
-            <p class="text-gray-600 mb-4 leading-relaxed">{{ service.description }}</p>
-            <ul class="space-y-2">
-              <li 
-                v-for="(item, iIndex) in service.items" 
-                :key="iIndex"
-                class="flex items-start space-x-2 text-sm text-gray-600"
-              >
-                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-                <span>{{ item }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="py-20 bg-white">
-      <div class="container-custom">
-        <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Our Process</h2>
-          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            A systematic approach to facility excellence
-          </p>
-        </div>
-
-        <div class="max-w-4xl mx-auto">
-          <div class="space-y-8">
-            <div 
-              v-for="(step, index) in processSteps" 
-              :key="index"
-              class="flex items-start space-x-6 animate-on-scroll"
-              :class="`delay-${(index + 1) * 100}`"
-            >
-              <div class="flex-shrink-0 w-16 h-16 bg-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold">
-                {{ index + 1 }}
-              </div>
-              <div class="flex-grow pt-2">
-                <h3 class="text-2xl font-bold text-primary mb-3">{{ step.title }}</h3>
-                <p class="text-gray-600 leading-relaxed">{{ step.description }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Technology Section -->
-    <section class="py-20 bg-gradient-to-br from-secondary to-primary">
-      <div class="container-custom">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="text-white animate-on-scroll">
-            <h2 class="text-4xl font-bold mb-6">Technology-Driven Solutions</h2>
-            <p class="text-xl text-gray-200 mb-8 leading-relaxed">
-              We leverage cutting-edge technology to deliver superior facility management services, 
-              providing real-time insights and proactive maintenance capabilities.
-            </p>
-
-            <div class="space-y-6">
-              <div 
-                v-for="(tech, index) in technologies" 
-                :key="index"
-                class="flex items-start space-x-4"
-              >
-                <div class="flex-shrink-0 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                  <component :is="tech.icon" class="w-6 h-6 text-accent" />
-                </div>
-                <div>
-                  <h3 class="text-lg font-bold mb-2">{{ tech.title }}</h3>
-                  <p class="text-gray-200 text-sm leading-relaxed">{{ tech.description }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="animate-on-scroll delay-200">
-            <div class="relative">
-              <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500">
-                <div class="aspect-square bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center p-8">
-                  <svg class="w-full h-full text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="absolute -top-6 -left-6 w-48 h-48 bg-accent/30 rounded-full blur-3xl"></div>
-              <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-white/20 rounded-full blur-3xl"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Benefits Grid -->
-    <section class="py-20 bg-white">
-      <div class="container-custom">
-        <div class="text-center mb-16 animate-on-scroll">
-          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Why Choose Our Services</h2>
-          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            The advantages of partnering with industry leaders
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div 
-            v-for="(benefit, index) in benefits" 
-            :key="index"
-            class="text-center group animate-on-scroll"
-            :class="`delay-${(index + 1) * 100}`"
-          >
-            <div class="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-              <component :is="benefit.icon" class="w-10 h-10 text-accent group-hover:text-white transition-colors duration-300" />
-            </div>
-            <h3 class="text-xl font-bold text-primary mb-3">{{ benefit.title }}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">{{ benefit.description }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Industries Served -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
@@ -234,6 +72,46 @@
         </div>
       </div>
     </section>
+
+    <!-- Core Services -->
+    <section class="py-20 bg-gray-50">
+      <div class="container-custom">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Core Services</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Comprehensive facility management across all critical areas
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div 
+            v-for="(service, index) in coreServices" 
+            :key="index"
+            class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group animate-on-scroll"
+            :class="`delay-${(index + 1) * 100}`"
+          >
+            <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+              <component :is="service.icon" class="w-8 h-8 text-secondary group-hover:text-white transition-colors duration-300" />
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">{{ service.title }}</h3>
+            <p class="text-gray-600 mb-4 leading-relaxed">{{ service.description }}</p>
+            <ul class="space-y-2">
+              <li 
+                v-for="(item, iIndex) in service.items" 
+                :key="iIndex"
+                class="flex items-start space-x-2 text-sm text-gray-600"
+              >
+                <svg class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>{{ item }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </template>
 
@@ -248,23 +126,6 @@ interface CoreService {
   description: string
   icon: () => any
   items: string[]
-}
-
-interface ProcessStep {
-  title: string
-  description: string
-}
-
-interface Technology {
-  title: string
-  description: string
-  icon: () => any
-}
-
-interface Benefit {
-  title: string
-  description: string
-  icon: () => any
 }
 
 interface Company {
@@ -353,97 +214,29 @@ const coreServices: CoreService[] = [
   }
 ]
 
-const processSteps: ProcessStep[] = [
-  {
-    title: 'Assessment & Planning',
-    description: 'We conduct a comprehensive evaluation of your facility to understand unique requirements, identify improvement opportunities, and develop a customized management plan.'
-  },
-  {
-    title: 'Implementation',
-    description: 'Our team seamlessly integrates with your operations, deploying systems, training staff, and establishing protocols to ensure smooth service delivery from day one.'
-  },
-  {
-    title: 'Monitoring & Optimization',
-    description: 'Continuous monitoring of all systems using advanced technology, with regular performance reviews and proactive adjustments to optimize efficiency and reduce costs.'
-  },
-  {
-    title: 'Reporting & Communication',
-    description: 'Transparent reporting with detailed analytics, regular updates, and open communication channels to keep you informed about your facility\'s performance.'
-  }
-]
-
-const technologies: Technology[] = [
-  {
-    title: 'IoT Sensors',
-    description: 'Real-time monitoring of building systems for proactive maintenance and energy optimization.',
-    icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z' })
-    ])
-  },
-  {
-    title: 'CMMS Software',
-    description: 'Computerized maintenance management system for efficient work order tracking and asset management.',
-    icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4' })
-    ])
-  },
-  {
-    title: 'Mobile Applications',
-    description: 'On-the-go access to facility data, work orders, and emergency notifications for instant response.',
-    icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z' })
-    ])
-  },
-  {
-    title: 'Analytics Dashboard',
-    description: 'Comprehensive data visualization for informed decision-making and performance tracking.',
-    icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' })
-    ])
-  }
-]
-
-const benefits: Benefit[] = [
-  {
-    title: 'Cost Savings',
-    description: 'Reduce operational expenses through preventive maintenance and energy optimization.',
-    icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z' })
-    ])
-  },
-  {
-    title: 'Increased Uptime',
-    description: 'Minimize disruptions with proactive maintenance and rapid emergency response.',
-    icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M13 10V3L4 14h7v7l9-11h-7z' })
-    ])
-  },
-  {
-    title: 'Expert Team',
-    description: 'Access to certified professionals with specialized expertise across all facility systems.',
-    icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z' })
-    ])
-  },
-  {
-    title: 'Compliance',
-    description: 'Stay compliant with all regulations through our comprehensive knowledge and monitoring.',
-    icon: () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox: '0 0 24 24' }, [
-      h('path', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2', d: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' })
-])
-}
-]
 const companies: Company[] = [
   {
+    name: 'Perbadanan Setiausaha  Kerajaan Negeri Perak (SSI)',
+    category: 'Bangunan Korporat'
+  },
+  {
     name: 'Kompleks Menembak Darul Ridzuan (KMDR)',
-    category: 'Kemudahan Sukan'
+    category: 'Kemudahan Tempat Bersukan'
   },
   {
     name: 'CASSIA',
-    category: 'Hospitaliti'
+    category: 'Ruang Majlis'
   },
   {
-    name: 'Menara SSI',
+    name: 'Silver Smart Sdn. Bhd.',
+    category: 'Bangunan Korporat'
+  },
+  {
+    name: 'Perak FC',
+    category: 'Bangunan Korporat'
+  },
+  {
+    name: 'Suruhanjaya Perkhidmatan Awam Negeri Perak (SPA)',
     category: 'Bangunan Korporat'
   },
   {
