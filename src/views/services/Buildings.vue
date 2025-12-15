@@ -21,26 +21,6 @@
       </div>
     </section>
 
-    <!-- Overview Section -->
-    <section class="py-20 bg-white">
-      <div class="container-custom">
-        <div class="max-w-4xl mx-auto">
-          <div class="animate-on-scroll">
-            <h2 class="text-4xl font-bold text-primary mb-6">Excellence in Property Management</h2>
-            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-              Our building management services encompass every aspect of property operations, from tenant relations to 
-              maintenance coordination and financial administration. We bring decades of expertise to ensure your building 
-              operates at peak efficiency while maintaining the highest standards of tenant satisfaction.
-            </p>
-            <p class="text-lg text-gray-600 leading-relaxed">
-              Whether you own a single commercial property or manage a diverse portfolio of residential and commercial buildings, 
-              our tailored solutions adapt to your specific needs, helping you maximize returns while minimizing operational headaches.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Service Categories -->
     <section class="py-20 bg-gray-50">
       <div class="container-custom">
@@ -84,70 +64,6 @@
       </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="py-20 bg-white">
-      <div class="container-custom">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="animate-on-scroll">
-            <h2 class="text-4xl font-bold text-primary mb-6">Why Choose Our Building Management?</h2>
-            <div class="space-y-6">
-              <div 
-                v-for="(benefit, index) in benefits" 
-                :key="index"
-                class="flex items-start space-x-4"
-              >
-                <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-xl font-bold text-primary mb-2">{{ benefit.title }}</h3>
-                  <p class="text-gray-600 leading-relaxed">{{ benefit.description }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="animate-on-scroll delay-200">
-            <div class="relative">
-              <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500">
-                <div class="aspect-[4/3] bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
-                  <svg class="w-64 h-64 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="absolute -top-6 -left-6 w-48 h-48 bg-accent/20 rounded-full blur-3xl"></div>
-              <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section class="py-20 bg-gradient-to-br from-primary to-primary/90">
-      <div class="container-custom">
-        <div class="text-center mb-12 animate-on-scroll">
-          <h2 class="text-4xl font-bold text-white mb-4">Our Track Record</h2>
-          <p class="text-xl text-gray-300">Proven results across our portfolio</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div 
-            v-for="(stat, index) in stats" 
-            :key="index"
-            class="text-center animate-on-scroll"
-            :class="`delay-${(index + 1) * 100}`"
-          >
-            <div class="text-5xl font-bold text-accent mb-2">{{ stat.value }}</div>
-            <div class="text-white font-semibold mb-1">{{ stat.label }}</div>
-            <div class="text-gray-300 text-sm">{{ stat.description }}</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Property Types -->
     <section class="py-20 bg-white">
@@ -175,29 +91,7 @@
     </div>
   </div>
 </section>
-
-<!-- CTA Section -->
-<section class="py-20 bg-gray-50">
-  <div class="container-custom">
-    <div class="bg-primary rounded-2xl p-12 text-white relative overflow-hidden text-center animate-on-scroll">
-      <div class="absolute inset-0 bg-gradient-to-r from-secondary/20 to-transparent"></div>
-      <div class="relative z-10 max-w-3xl mx-auto">
-        <h2 class="text-4xl font-bold mb-6">Let Us Manage Your Property</h2>
-        <p class="text-xl text-gray-300 mb-8">
-          Partner with us to maximize your property's potential and ensure seamless operations
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <router-link to="/contact" class="btn-accent">
-            Request a Consultation
-          </router-link>
-          <a href="tel:+15551234567" class="btn-primary border-2 border-white bg-transparent hover:bg-white hover:text-primary">
-            Call (555) 123-4567
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section></div>
+</div>
 </template>
 <script setup lang="ts">
 import { h } from 'vue'

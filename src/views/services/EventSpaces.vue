@@ -41,7 +41,7 @@
       </div>
     </section>
 
-        <!-- Space Options -->
+    <!-- Space Options -->
     <section class="py-20 bg-white">
       <div class="container-custom">
         <div class="text-center mb-16 animate-on-scroll">
@@ -80,9 +80,9 @@
                 </span>
               </div>
               <p class="text-gray-600 mb-4 leading-relaxed">{{ space.description }}</p>
-              <ul class="space-y-2">
+              <ul class="space-y-2 mb-6">
                 <li 
-                  v-for="(amenity, aIndex) in space.amenities" 
+                  v-for="(amenity, aIndex) in space.amenities.slice(0, 5)" 
                   :key="aIndex"
                   class="flex items-center space-x-2 text-sm text-gray-600"
                 >
@@ -92,6 +92,20 @@
                   <span>{{ amenity }}</span>
                 </li>
               </ul>
+              <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-200">
+                <button 
+                  @click="openDetailsModal(space)"
+                  class="flex-1 px-4 py-3 bg-white border-2 border-secondary text-secondary rounded-lg font-semibold hover:bg-secondary hover:text-white transition-colors duration-300"
+                >
+                  Maklumat Lanjut
+                </button>
+                <button 
+                  @click="openBookingModal(space)"
+                  class="flex-1 px-4 py-3 bg-secondary text-white rounded-lg font-semibold hover:bg-secondary/90 transition-colors duration-300"
+                >
+                  Tempah Sekarang
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -144,11 +158,281 @@
         </div>
       </div>
     </section>
+
+    <!-- Details Modal -->
+    <Teleport to="body">
+      <Transition name="modal">
+        <div 
+          v-if="showDetailsModal" 
+          class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          @click="closeDetailsModal"
+        >
+          <div 
+            class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+            @click.stop
+          >
+            <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
+              <h3 class="text-2xl font-bold text-primary">{{ selectedSpace?.name }}</h3>
+              <button 
+                @click="closeDetailsModal"
+                class="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="p-6">
+              <div class="mb-6">
+                <div class="flex items-center space-x-6 text-gray-600 mb-4">
+                  <span class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                    </svg>
+                    <span class="font-medium">{{ selectedSpace?.capacity }}</span>
+                  </span>
+                  <span class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="font-medium">{{ selectedSpace?.size }}</span>
+                  </span>
+                </div>
+                <p class="text-gray-700 leading-relaxed text-lg">{{ selectedSpace?.description }}</p>
+              </div>
+
+              <div class="mb-6">
+                <h4 class="text-xl font-bold text-primary mb-4">Full Description</h4>
+                <p class="text-gray-700 leading-relaxed">{{ selectedSpace?.fullDescription }}</p>
+              </div>
+
+              <div class="mb-6">
+                <h4 class="text-xl font-bold text-primary mb-4">Amenities & Features</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div 
+                    v-for="(amenity, index) in selectedSpace?.amenities" 
+                    :key="index"
+                    class="flex items-center space-x-3 text-gray-700"
+                  >
+                    <svg class="w-5 h-5 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>{{ amenity }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <h4 class="text-xl font-bold text-primary mb-4">Ideal For</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span 
+                    v-for="(event, index) in selectedSpace?.idealFor" 
+                    :key="index"
+                    class="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium"
+                  >
+                    {{ event }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-200">
+                <button 
+                  @click="openBookingModalFromDetails"
+                  class="flex-1 px-6 py-3 bg-secondary text-white rounded-lg font-semibold hover:bg-secondary/90 transition-colors duration-300"
+                >
+                  Tempah Sekarang
+                </button>
+                <button 
+                  @click="closeDetailsModal"
+                  class="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300"
+                >
+                  Tutup
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
+
+    <!-- Booking Modal -->
+    <Teleport to="body">
+      <Transition name="modal">
+        <div 
+          v-if="showBookingModal" 
+          class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          @click="closeBookingModal"
+        >
+          <div 
+            class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            @click.stop
+          >
+            <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
+              <h3 class="text-2xl font-bold text-primary">Tempah {{ selectedSpace?.name }}</h3>
+              <button 
+                @click="closeBookingModal"
+                class="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              >
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="p-6">
+              <div class="bg-secondary/10 rounded-lg p-4 mb-6">
+                <h4 class="font-semibold text-primary mb-3">Atau hubungi kami terus:</h4>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-3">
+                    <svg class="w-5 h-5 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                    </svg>
+                    <div>
+                      <p class="font-medium text-gray-900">{{ staffContact.name }}</p>
+                      <a :href="`tel:${staffContact.phone}`" class="text-secondary hover:underline">
+                        {{ staffContact.phone }}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <form @submit.prevent="handleBookingSubmit" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Nama Penuh *</label>
+                    <input 
+                      v-model="bookingForm.fullName"
+                      type="text" 
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                      placeholder="Masukkan nama penuh"
+                    >
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Nombor Telefon *</label>
+                    <input 
+                      v-model="bookingForm.phone"
+                      type="tel" 
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                      placeholder="Contoh: 012-3456789"
+                    >
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                  <input 
+                    v-model="bookingForm.email"
+                    type="email" 
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                    placeholder="email@example.com"
+                  >
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Organisasi/Syarikat</label>
+                  <input 
+                    v-model="bookingForm.organization"
+                    type="text"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                    placeholder="Nama organisasi atau syarikat"
+                  >
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Tarikh Acara *</label>
+                    <input 
+                      v-model="bookingForm.eventDate"
+                      type="date" 
+                      required
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                    >
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Jangkaan Tetamu *</label>
+                    <input 
+                      v-model="bookingForm.guestCount"
+                      type="number" 
+                      required
+                      min="1"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                      placeholder="Bilangan tetamu"
+                    >
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Acara *</label>
+                  <select 
+                    v-model="bookingForm.eventType"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                  >
+                    <option value="">Pilih jenis acara</option>
+                    <option value="conference">Persidangan/Conference</option>
+                    <option value="seminar">Seminar/Workshop</option>
+                    <option value="corporate">Acara Korporat</option>
+                    <option value="wedding">Majlis Perkahwinan</option>
+                    <option value="birthday">Hari Jadi</option>
+                    <option value="meeting">Mesyuarat/Meeting</option>
+                    <option value="other">Lain-lain</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Butiran Tambahan</label>
+                  <textarea 
+                    v-model="bookingForm.additionalDetails"
+                    rows="4"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent"
+                    placeholder="Terangkan butiran acara, keperluan khas, atau soalan anda..."
+                  ></textarea>
+                </div>
+
+                <div class="flex items-start space-x-2">
+                  <input 
+                    v-model="bookingForm.agreeTerms"
+                    type="checkbox" 
+                    required
+                    id="agreeTerms"
+                    class="mt-1 w-4 h-4 text-secondary border-gray-300 rounded focus:ring-2 focus:ring-secondary"
+                  >
+                  <label for="agreeTerms" class="text-sm text-gray-600">
+                    Saya bersetuju dengan terma dan syarat perkhidmatan tempahan ruang acara
+                  </label>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 pt-4">
+                  <button 
+                    type="submit"
+                    class="flex-1 px-6 py-3 bg-secondary text-white rounded-lg font-semibold hover:bg-secondary/90 transition-colors duration-300"
+                  >
+                    Hantar Tempahan
+                  </button>
+                  <button 
+                    type="button"
+                    @click="closeBookingModal"
+                    class="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-colors duration-300"
+                  >
+                    Batal
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
   </div>
 </template>
 
 <script setup lang="ts">
-import { h } from 'vue'
+import { h, ref } from 'vue'
 import { useScrollAnimation } from '../../composables/useScrollAnimation'
 
 useScrollAnimation()
@@ -164,7 +448,89 @@ interface Space {
   capacity: string
   size: string
   description: string
+  fullDescription: string
   amenities: string[]
+  idealFor: string[]
+}
+
+interface BookingForm {
+  fullName: string
+  phone: string
+  email: string
+  organization: string
+  eventDate: string
+  guestCount: number | null
+  eventType: string
+  additionalDetails: string
+  agreeTerms: boolean
+}
+
+const showDetailsModal = ref(false)
+const showBookingModal = ref(false)
+const selectedSpace = ref<Space | null>(null)
+
+const staffContact = {
+  name: 'Ahmad bin Abdullah',
+  phone: '012-345 6789'
+}
+
+const bookingForm = ref<BookingForm>({
+  fullName: '',
+  phone: '',
+  email: '',
+  organization: '',
+  eventDate: '',
+  guestCount: null,
+  eventType: '',
+  additionalDetails: '',
+  agreeTerms: false
+})
+
+const openDetailsModal = (space: Space) => {
+  selectedSpace.value = space
+  showDetailsModal.value = true
+  document.body.style.overflow = 'hidden'
+}
+
+const closeDetailsModal = () => {
+  showDetailsModal.value = false
+  document.body.style.overflow = ''
+}
+
+const openBookingModal = (space: Space) => {
+  selectedSpace.value = space
+  showBookingModal.value = true
+  document.body.style.overflow = 'hidden'
+}
+
+const closeBookingModal = () => {
+  showBookingModal.value = false
+  document.body.style.overflow = ''
+  bookingForm.value = {
+    fullName: '',
+    phone: '',
+    email: '',
+    organization: '',
+    eventDate: '',
+    guestCount: null,
+    eventType: '',
+    additionalDetails: '',
+    agreeTerms: false
+  }
+}
+
+const openBookingModalFromDetails = () => {
+  closeDetailsModal()
+  showBookingModal.value = true
+}
+
+const handleBookingSubmit = () => {
+  console.log('Booking form submitted:', {
+    space: selectedSpace.value?.name,
+    ...bookingForm.value
+  })
+  alert(`Terima kasih! Tempahan anda untuk ${selectedSpace.value?.name} telah diterima. Kami akan menghubungi anda tidak lama lagi.`)
+  closeBookingModal()
 }
 
 const features: Feature[] = [
@@ -219,12 +585,24 @@ const spaces: Space[] = [
     capacity: 'Up to 300 guests',
     size: '5,000 sq ft',
     description: 'Our largest and most elegant space, perfect for conferences, galas, and large celebrations.',
+    fullDescription: 'CASSIA is our premier event venue, offering an impressive 5,000 square feet of versatile space that can accommodate up to 300 guests. This grand hall features soaring ceilings, elegant architectural details, and floor-to-ceiling windows that flood the space with natural light. The sophisticated design seamlessly blends modern amenities with timeless elegance, making it the perfect backdrop for your most important events. Whether you\'re hosting a corporate conference, product launch, wedding reception, or gala dinner, CASSIA provides the perfect canvas to bring your vision to life.',
     amenities: [
       'Professional lighting system',
       'Built-in stage and podium',
       'Multiple screen displays',
       'Premium sound system',
-      'Separate breakout rooms'
+      'Separate breakout rooms',
+      'Green room for speakers/performers',
+      'Dedicated coat check area',
+      'Climate control system'
+    ],
+    idealFor: [
+      'Corporate Conferences',
+      'Wedding Receptions',
+      'Gala Dinners',
+      'Product Launches',
+      'Award Ceremonies',
+      'Trade Shows'
     ]
   },
   {
@@ -232,13 +610,47 @@ const spaces: Space[] = [
     capacity: 'Up to 100 guests',
     size: '800 sq ft',
     description: 'Sophisticated boardroom-style space ideal for corporate meetings and presentations.',
+    fullDescription: 'Mini CASSIA offers an intimate yet professional setting for smaller gatherings and corporate events. This 800 square foot venue is designed with versatility in mind, featuring movable partitions that allow for various seating arrangements. The space is equipped with cutting-edge technology and premium furnishings, creating an environment that fosters productivity and collaboration. The elegant décor and attention to detail make Mini CASSIA ideal for executive meetings, workshops, training sessions, and intimate celebrations that require a more personal touch.',
     amenities: [
       'Video conferencing equipment',
       'Interactive whiteboard',
       'Executive seating',
       'Private entrance',
-      'Complimentary refreshments'
+      'Complimentary refreshments',
+      'High-speed WiFi',
+      'Adjustable lighting',
+      'Soundproofing'
+    ],
+    idealFor: [
+      'Board Meetings',
+      'Training Workshops',
+      'Business Presentations',
+      'Team Building Events',
+      'Small Seminars',
+      'Intimate Celebrations'
     ]
   }
 ]
 </script>
+
+<style scoped>
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active > div,
+.modal-leave-active > div {
+  transition: transform 0.3s ease;
+}
+
+.modal-enter-from > div,
+.modal-leave-to > div {
+  transform: scale(0.95);
+}
+</style>
