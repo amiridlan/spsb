@@ -1,7 +1,7 @@
 <template>
   <div class="contact-page">
     <!-- Page Hero with Contact Info -->
-    <section class="relative py-32 bg-gradient-to-br from-primary via-primary to-primary/90 overflow-hidden">
+    <section class="relative py-32 mt-8 bg-gradient-to-br from-primary via-primary to-primary/90 overflow-hidden">
       <div class="absolute inset-0 opacity-10">
         <div class="absolute inset-0 bg-primary"></div>
       </div>
